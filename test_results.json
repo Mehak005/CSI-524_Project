@@ -1,0 +1,713 @@
+{
+  "summary": {
+    "total": 64,
+    "passed": 50,
+    "failed": 14,
+    "pass_rate": 78.125,
+    "over_permissive": [
+      "\u274c FAIL - Scenario 20",
+      "\u274c FAIL - Scenario 24",
+      "\u274c FAIL - Scenario 25",
+      "\u274c FAIL - Scenario 27",
+      "\u274c FAIL - Scenario 30",
+      "\u274c FAIL - Scenario 43",
+      "\u274c FAIL - Scenario 46",
+      "\u274c FAIL - Scenario 49",
+      "\u274c FAIL - Scenario 50",
+      "\u274c FAIL - Scenario 52",
+      "\u274c FAIL - Scenario 53",
+      "\u274c FAIL - Scenario 54",
+      "\u274c FAIL - Scenario 56",
+      "\u274c FAIL - Scenario 62"
+    ],
+    "over_restrictive": [],
+    "failures_by_audience": {
+      "collaborator": [
+        "\u274c FAIL - Scenario 20",
+        "\u274c FAIL - Scenario 24",
+        "\u274c FAIL - Scenario 25",
+        "\u274c FAIL - Scenario 27",
+        "\u274c FAIL - Scenario 30"
+      ],
+      "org_member": [
+        "\u274c FAIL - Scenario 43",
+        "\u274c FAIL - Scenario 46"
+      ],
+      "external": [
+        "\u274c FAIL - Scenario 49",
+        "\u274c FAIL - Scenario 50",
+        "\u274c FAIL - Scenario 52",
+        "\u274c FAIL - Scenario 53",
+        "\u274c FAIL - Scenario 54",
+        "\u274c FAIL - Scenario 56",
+        "\u274c FAIL - Scenario 62"
+      ]
+    },
+    "failures_by_action": {
+      "share": [
+        "\u274c FAIL - Scenario 20",
+        "\u274c FAIL - Scenario 24",
+        "\u274c FAIL - Scenario 52",
+        "\u274c FAIL - Scenario 56"
+      ],
+      "read": [
+        "\u274c FAIL - Scenario 25",
+        "\u274c FAIL - Scenario 49",
+        "\u274c FAIL - Scenario 53"
+      ],
+      "delete": [
+        "\u274c FAIL - Scenario 27",
+        "\u274c FAIL - Scenario 43"
+      ],
+      "edit": [
+        "\u274c FAIL - Scenario 30",
+        "\u274c FAIL - Scenario 46",
+        "\u274c FAIL - Scenario 50",
+        "\u274c FAIL - Scenario 54",
+        "\u274c FAIL - Scenario 62"
+      ]
+    }
+  },
+  "results": [
+    {
+      "scenario_id": 1,
+      "audience": "owner",
+      "visibility": "private",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911654"
+    },
+    {
+      "scenario_id": 2,
+      "audience": "owner",
+      "visibility": "private",
+      "action": "edit",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911667"
+    },
+    {
+      "scenario_id": 3,
+      "audience": "owner",
+      "visibility": "private",
+      "action": "delete",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911671"
+    },
+    {
+      "scenario_id": 4,
+      "audience": "owner",
+      "visibility": "private",
+      "action": "share",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911695"
+    },
+    {
+      "scenario_id": 5,
+      "audience": "owner",
+      "visibility": "shared",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911703"
+    },
+    {
+      "scenario_id": 6,
+      "audience": "owner",
+      "visibility": "shared",
+      "action": "edit",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911709"
+    },
+    {
+      "scenario_id": 7,
+      "audience": "owner",
+      "visibility": "shared",
+      "action": "delete",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911712"
+    },
+    {
+      "scenario_id": 8,
+      "audience": "owner",
+      "visibility": "shared",
+      "action": "share",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911717"
+    },
+    {
+      "scenario_id": 9,
+      "audience": "owner",
+      "visibility": "org_public",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911721"
+    },
+    {
+      "scenario_id": 10,
+      "audience": "owner",
+      "visibility": "org_public",
+      "action": "edit",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911726"
+    },
+    {
+      "scenario_id": 11,
+      "audience": "owner",
+      "visibility": "org_public",
+      "action": "delete",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911744"
+    },
+    {
+      "scenario_id": 12,
+      "audience": "owner",
+      "visibility": "org_public",
+      "action": "share",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911749"
+    },
+    {
+      "scenario_id": 13,
+      "audience": "owner",
+      "visibility": "public",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911753"
+    },
+    {
+      "scenario_id": 14,
+      "audience": "owner",
+      "visibility": "public",
+      "action": "edit",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911757"
+    },
+    {
+      "scenario_id": 15,
+      "audience": "owner",
+      "visibility": "public",
+      "action": "delete",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911759"
+    },
+    {
+      "scenario_id": 16,
+      "audience": "owner",
+      "visibility": "public",
+      "action": "share",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911763"
+    },
+    {
+      "scenario_id": 17,
+      "audience": "collaborator",
+      "visibility": "private",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911769"
+    },
+    {
+      "scenario_id": 18,
+      "audience": "collaborator",
+      "visibility": "private",
+      "action": "edit",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911774"
+    },
+    {
+      "scenario_id": 19,
+      "audience": "collaborator",
+      "visibility": "private",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911777"
+    },
+    {
+      "scenario_id": 20,
+      "audience": "collaborator",
+      "visibility": "private",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911781"
+    },
+    {
+      "scenario_id": 21,
+      "audience": "collaborator",
+      "visibility": "shared",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911791"
+    },
+    {
+      "scenario_id": 22,
+      "audience": "collaborator",
+      "visibility": "shared",
+      "action": "edit",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911796"
+    },
+    {
+      "scenario_id": 23,
+      "audience": "collaborator",
+      "visibility": "shared",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911798"
+    },
+    {
+      "scenario_id": 24,
+      "audience": "collaborator",
+      "visibility": "shared",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911802"
+    },
+    {
+      "scenario_id": 25,
+      "audience": "collaborator",
+      "visibility": "org_public",
+      "action": "read",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911806"
+    },
+    {
+      "scenario_id": 26,
+      "audience": "collaborator",
+      "visibility": "org_public",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911810"
+    },
+    {
+      "scenario_id": 27,
+      "audience": "collaborator",
+      "visibility": "org_public",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911812"
+    },
+    {
+      "scenario_id": 28,
+      "audience": "collaborator",
+      "visibility": "org_public",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911815"
+    },
+    {
+      "scenario_id": 29,
+      "audience": "collaborator",
+      "visibility": "public",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911819"
+    },
+    {
+      "scenario_id": 30,
+      "audience": "collaborator",
+      "visibility": "public",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911823"
+    },
+    {
+      "scenario_id": 31,
+      "audience": "collaborator",
+      "visibility": "public",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911831"
+    },
+    {
+      "scenario_id": 32,
+      "audience": "collaborator",
+      "visibility": "public",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911834"
+    },
+    {
+      "scenario_id": 33,
+      "audience": "org_member",
+      "visibility": "private",
+      "action": "read",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911836"
+    },
+    {
+      "scenario_id": 34,
+      "audience": "org_member",
+      "visibility": "private",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911839"
+    },
+    {
+      "scenario_id": 35,
+      "audience": "org_member",
+      "visibility": "private",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911841"
+    },
+    {
+      "scenario_id": 36,
+      "audience": "org_member",
+      "visibility": "private",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911843"
+    },
+    {
+      "scenario_id": 37,
+      "audience": "org_member",
+      "visibility": "shared",
+      "action": "read",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911846"
+    },
+    {
+      "scenario_id": 38,
+      "audience": "org_member",
+      "visibility": "shared",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911848"
+    },
+    {
+      "scenario_id": 39,
+      "audience": "org_member",
+      "visibility": "shared",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911850"
+    },
+    {
+      "scenario_id": 40,
+      "audience": "org_member",
+      "visibility": "shared",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911852"
+    },
+    {
+      "scenario_id": 41,
+      "audience": "org_member",
+      "visibility": "org_public",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911862"
+    },
+    {
+      "scenario_id": 42,
+      "audience": "org_member",
+      "visibility": "org_public",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911865"
+    },
+    {
+      "scenario_id": 43,
+      "audience": "org_member",
+      "visibility": "org_public",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911867"
+    },
+    {
+      "scenario_id": 44,
+      "audience": "org_member",
+      "visibility": "org_public",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911870"
+    },
+    {
+      "scenario_id": 45,
+      "audience": "org_member",
+      "visibility": "public",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911874"
+    },
+    {
+      "scenario_id": 46,
+      "audience": "org_member",
+      "visibility": "public",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911878"
+    },
+    {
+      "scenario_id": 47,
+      "audience": "org_member",
+      "visibility": "public",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911879"
+    },
+    {
+      "scenario_id": 48,
+      "audience": "org_member",
+      "visibility": "public",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911882"
+    },
+    {
+      "scenario_id": 49,
+      "audience": "external",
+      "visibility": "private",
+      "action": "read",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911886"
+    },
+    {
+      "scenario_id": 50,
+      "audience": "external",
+      "visibility": "private",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911891"
+    },
+    {
+      "scenario_id": 51,
+      "audience": "external",
+      "visibility": "private",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911899"
+    },
+    {
+      "scenario_id": 52,
+      "audience": "external",
+      "visibility": "private",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911903"
+    },
+    {
+      "scenario_id": 53,
+      "audience": "external",
+      "visibility": "shared",
+      "action": "read",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911907"
+    },
+    {
+      "scenario_id": 54,
+      "audience": "external",
+      "visibility": "shared",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911912"
+    },
+    {
+      "scenario_id": 55,
+      "audience": "external",
+      "visibility": "shared",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911914"
+    },
+    {
+      "scenario_id": 56,
+      "audience": "external",
+      "visibility": "shared",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911930"
+    },
+    {
+      "scenario_id": 57,
+      "audience": "external",
+      "visibility": "org_public",
+      "action": "read",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911934"
+    },
+    {
+      "scenario_id": 58,
+      "audience": "external",
+      "visibility": "org_public",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911938"
+    },
+    {
+      "scenario_id": 59,
+      "audience": "external",
+      "visibility": "org_public",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911939"
+    },
+    {
+      "scenario_id": 60,
+      "audience": "external",
+      "visibility": "org_public",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911942"
+    },
+    {
+      "scenario_id": 61,
+      "audience": "external",
+      "visibility": "public",
+      "action": "read",
+      "expected": "ALLOW",
+      "actual": "ALLOW",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911957"
+    },
+    {
+      "scenario_id": 62,
+      "audience": "external",
+      "visibility": "public",
+      "action": "edit",
+      "expected": "DENY",
+      "actual": "ALLOW",
+      "passed": false,
+      "timestamp": "2025-12-03T00:04:09.911961"
+    },
+    {
+      "scenario_id": 63,
+      "audience": "external",
+      "visibility": "public",
+      "action": "delete",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911963"
+    },
+    {
+      "scenario_id": 64,
+      "audience": "external",
+      "visibility": "public",
+      "action": "share",
+      "expected": "DENY",
+      "actual": "DENY",
+      "passed": true,
+      "timestamp": "2025-12-03T00:04:09.911966"
+    }
+  ]
+}

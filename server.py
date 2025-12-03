@@ -116,6 +116,25 @@ def file_permissions(file_id):
     return jsonify(resp.to_dict()), resp.status_code
 
 
+@app.route('/authorize', methods=['POST'])
+def authorize_check():
+    """Non-destructive authorization check endpoint.
+
+    JSON: { file_id, user_id, action }
+    Returns: { allowed: True|False }
+    """
+    body = request.get_json(silent=True) or {}
+    file_id = body.get('file_id')
+    user_id = body.get('user_id')
+    action = body.get('action')
+
+    if not file_id or not user_id or not action:
+        return _bad_request('Missing required fields: file_id, user_id, action')
+
+    allowed = api._check_authorization(file_id, user_id, action)
+    return jsonify({'allowed': bool(allowed)}), 200
+
+
 @app.route('/files', methods=['GET'])
 def list_files():
     # Simple debug listing of all files

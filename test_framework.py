@@ -5,7 +5,7 @@ Compares API behavior against the formal policy model.
 """
 
 from policy_model import AuthorizationPolicy
-from file_sharing_api import FileShareAPI
+from api_client import ApiClient
 from typing import List, Dict
 import json
 from datetime import datetime
@@ -36,7 +36,9 @@ class AuthorizationTestFramework:
 
     def __init__(self):
         self.policy = AuthorizationPolicy()
-        self.api = FileShareAPI()
+        # Use HTTP client pointing at local Flask server
+        # Ensure the server is running (default: http://localhost:5000)
+        self.api = ApiClient(base_url='http://localhost:5000')
         self.test_results: List[TestResult] = []
 
         # Test fixture IDs (will be populated during setup)
@@ -54,7 +56,7 @@ class AuthorizationTestFramework:
         print("SETTING UP TEST FIXTURES")
         print("=" * 60)
 
-        # Reset API state
+        # Reset API state (call server)
         self.api.reset()
 
         # Create organizations
@@ -84,13 +86,13 @@ class AuthorizationTestFramework:
         owner_id = self.users['owner']
 
         private_resp = self.api.create_file(owner_id, "test-private.txt",
-                                            "private", "Private content")
+                            "private", "Private content")
         shared_resp = self.api.create_file(owner_id, "test-shared.txt",
-                                           "shared", "Shared content")
+                           "shared", "Shared content")
         org_resp = self.api.create_file(owner_id, "test-org.txt",
-                                        "org_public", "Org content")
+                        "org_public", "Org content")
         public_resp = self.api.create_file(owner_id, "test-public.txt",
-                                           "public", "Public content")
+                           "public", "Public content")
 
         self.files = {
             'private': private_resp.data['file_id'],
@@ -138,8 +140,8 @@ class AuthorizationTestFramework:
         elif action == 'edit':
             response = self.api.update_file(file_id, user_id, "Updated content")
         elif action == 'delete':
-            # Note: Delete actually removes the file, so we test authorization only
-            authorized = self.api._check_authorization(file_id, user_id, 'delete')
+            # Use a non-destructive authorization check endpoint to avoid removing test fixtures
+            authorized = self.api.check_authorization(file_id, user_id, 'delete')
             return 'ALLOW' if authorized else 'DENY'
         elif action == 'share':
             # Share with a dummy target user

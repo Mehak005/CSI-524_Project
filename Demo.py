@@ -5,7 +5,7 @@ Perfect for class presentations - easy to explain and understand!
 """
 
 from policy_model import AuthorizationPolicy
-from file_sharing_api import FileShareAPI
+from api_client import ApiClient
 
 
 def print_header(text):
@@ -44,7 +44,8 @@ def simple_demo():
     print_section("STEP 1: Setting Up Test Environment")
 
     policy = AuthorizationPolicy()
-    api = FileShareAPI()
+    # Use HTTP client to call the Flask server. Ensure the server is running at this base URL.
+    api = ApiClient(base_url='http://localhost:5000')
 
     # Create users
     print("Creating users...")
@@ -187,8 +188,9 @@ def simple_demo():
         elif scenario['action'] == 'edit':
             response = api.update_file(scenario['file_id'], scenario['user_id'], "New content")
         elif scenario['action'] == 'delete':
-            actual = api._check_authorization(scenario['file_id'], scenario['user_id'], 'delete')
-            response = type('obj', (object,), {'status_code': 200 if actual else 403})
+            # Use non-destructive authorization check instead of deleting the file
+            allowed = api.check_authorization(scenario['file_id'], scenario['user_id'], 'delete')
+            response = type('obj', (object,), {'status_code': 200 if allowed else 403})
         elif scenario['action'] == 'share':
             response = api.share_file(scenario['file_id'], scenario['user_id'], external_id, 'read')
 

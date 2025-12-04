@@ -28,7 +28,7 @@ class TestResultVisualizer:
         # Create output directory
         Path('visualizations').mkdir(exist_ok=True)
 
-        print(f"📊 Loaded {len(self.results)} test results")
+        print(f"Loaded {len(self.results)} test results")
         print(f"   Pass rate: {self.summary['pass_rate']:.1f}%")
 
     def create_overall_summary(self):
@@ -55,7 +55,7 @@ class TestResultVisualizer:
 
         plt.tight_layout()
         plt.savefig('visualizations/overall_summary.png', dpi=300, bbox_inches='tight')
-        print("✅ Created: visualizations/overall_summary.png")
+        print("Created: visualizations/overall_summary.png")
         plt.close()
 
     def create_heatmap_by_audience(self):
@@ -122,7 +122,7 @@ class TestResultVisualizer:
                      fontsize=18, fontweight='bold', y=0.995)
         plt.tight_layout()
         plt.savefig('visualizations/heatmap_by_audience.png', dpi=300, bbox_inches='tight')
-        print("✅ Created: visualizations/heatmap_by_audience.png")
+        print("Created: visualizations/heatmap_by_audience.png")
         plt.close()
 
     def create_failures_by_audience(self):
@@ -150,7 +150,7 @@ class TestResultVisualizer:
 
         plt.tight_layout()
         plt.savefig('visualizations/failures_by_audience.png', dpi=300, bbox_inches='tight')
-        print("✅ Created: visualizations/failures_by_audience.png")
+        print("Created: visualizations/failures_by_audience.png")
         plt.close()
 
     def create_failures_by_action(self):
@@ -178,7 +178,7 @@ class TestResultVisualizer:
 
         plt.tight_layout()
         plt.savefig('visualizations/failures_by_action.png', dpi=300, bbox_inches='tight')
-        print("✅ Created: visualizations/failures_by_action.png")
+        print("Created: visualizations/failures_by_action.png")
         plt.close()
 
     def create_pass_rate_by_audience(self):
@@ -230,7 +230,7 @@ class TestResultVisualizer:
 
         plt.tight_layout()
         plt.savefig('visualizations/pass_rate_by_audience.png', dpi=300, bbox_inches='tight')
-        print("✅ Created: visualizations/pass_rate_by_audience.png")
+        print("Created: visualizations/pass_rate_by_audience.png")
         plt.close()
 
     def create_severity_matrix(self):
@@ -265,7 +265,7 @@ class TestResultVisualizer:
 
         plt.tight_layout()
         plt.savefig('visualizations/severity_matrix.png', dpi=300, bbox_inches='tight')
-        print("✅ Created: visualizations/severity_matrix.png")
+        print("Created: visualizations/severity_matrix.png")
         plt.close()
 
     def generate_all_visualizations(self):
@@ -282,9 +282,9 @@ class TestResultVisualizer:
         self.create_severity_matrix()
 
         print("\n" + "=" * 60)
-        print("✅ ALL VISUALIZATIONS CREATED")
+        print("ALL VISUALIZATIONS CREATED")
         print("=" * 60)
-        print(f"\n📁 Check the 'visualizations/' folder for all charts!\n")
+        print(f"\nCheck the 'visualizations/' folder for all charts!\n")
 
 
 # Main execution

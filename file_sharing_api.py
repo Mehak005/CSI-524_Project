@@ -86,7 +86,7 @@ class FileShareAPI:
         self.permissions: Dict[Tuple[str, str], Permission] = {}  # (file_id, user_id) -> Permission
         self.organizations: Dict[str, List[str]] = {}  # org_id -> list of user_ids
 
-        print("🚀 FileShareAPI initialized")
+        print("FileShareAPI initialized")
 
     # ==================== USER MANAGEMENT ====================
 
@@ -271,7 +271,7 @@ class FileShareAPI:
         """
         Core authorization logic.
 
-        ⚠️ WARNING: This implementation contains INTENTIONAL BUGS for testing!
+        WARNING: This implementation contains INTENTIONAL BUGS for testing!
 
         Args:
             file_id: The file being accessed
@@ -297,7 +297,7 @@ class FileShareAPI:
                 return True
             # BUG #1: Public files allow editing! (Should only allow read)
             elif action == 'edit':
-                return True  # 🐛 INTENTIONAL BUG
+                return True  # INTENTIONAL BUG
             else:
                 return False
 
@@ -311,7 +311,7 @@ class FileShareAPI:
                 return True
             # BUG #2: Org members can delete org_public files! (Should only read)
             elif same_org and action == 'delete':
-                return True  # 🐛 INTENTIONAL BUG
+                return True  # INTENTIONAL BUG
             else:
                 return False
 
@@ -326,7 +326,7 @@ class FileShareAPI:
                 return perm.permission_type == 'edit' or perm.permission_type == 'read'
             # BUG #3: Collaborators can share files! (Should not be allowed)
             elif action == 'share':
-                return True  # 🐛 INTENTIONAL BUG
+                return True  # INTENTIONAL BUG
             elif action == 'delete':
                 return False  # Collaborators cannot delete
 
@@ -349,7 +349,7 @@ class FileShareAPI:
         self.files.clear()
         self.permissions.clear()
         self.organizations.clear()
-        print("🔄 API state reset")
+        print("API state reset")
 
     def print_state(self):
         """Print current API state (for debugging)"""
@@ -377,7 +377,7 @@ if __name__ == "__main__":
     org2 = "org-external"
 
     # Create users
-    print("\n📋 Creating users...")
+    print("\nCreating users...")
     owner_resp = api.create_user("owner@acme.com", org1, "Alice Owner")
     collab_resp = api.create_user("collaborator@acme.com", org1, "Bob Collaborator")
     org_resp = api.create_user("orgmember@acme.com", org1, "Charlie OrgMember")
@@ -388,10 +388,10 @@ if __name__ == "__main__":
     org_id = org_resp.data['user_id']
     ext_id = ext_resp.data['user_id']
 
-    print(f"✅ Created 4 users")
+    print(f"Created 4 users")
 
     # Create files with different visibility
-    print("\n📁 Creating files...")
+    print("\nCreating files...")
     private_file = api.create_file(owner_id, "private.txt", "private", "Secret content")
     public_file = api.create_file(owner_id, "public.txt", "public", "Public content")
     org_file = api.create_file(owner_id, "org.txt", "org_public", "Org content")
@@ -402,15 +402,15 @@ if __name__ == "__main__":
     org_fid = org_file.data['file_id']
     shared_fid = shared_file.data['file_id']
 
-    print(f"✅ Created 4 files with different visibility levels")
+    print(f"Created 4 files with different visibility levels")
 
     # Share a file with collaborator
-    print("\n🤝 Sharing file...")
+    print("\nSharing file...")
     api.share_file(shared_fid, owner_id, collab_id, 'edit')
-    print(f"✅ Shared file with collaborator")
+    print(f"Shared file with collaborator")
 
     # Test some scenarios
-    print("\n🧪 Testing Authorization Scenarios:")
+    print("\nTesting Authorization Scenarios:")
     print("-" * 60)
 
     test_scenarios = [
@@ -425,8 +425,8 @@ if __name__ == "__main__":
 
     for desc, uid, fid, action in test_scenarios:
         result = api._check_authorization(fid, uid, action)
-        status = "✅ ALLOW" if result else "❌ DENY"
-        bug_marker = " 🐛" if "BUG" in desc else ""
+        status = "ALLOW" if result else "DENY"
+        bug_marker = " (BUG)" if "BUG" in desc else ""
         print(f"{status} - {desc}{bug_marker}")
 
     # Show state

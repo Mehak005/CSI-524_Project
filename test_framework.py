@@ -24,7 +24,7 @@ class TestResult:
         self.timestamp = datetime.now()
 
     def __repr__(self):
-        status = "✅ PASS" if self.passed else "❌ FAIL"
+        status = "PASS" if self.passed else "FAIL"
         return f"{status} - Scenario {self.scenario_id}"
 
 
@@ -45,7 +45,7 @@ class AuthorizationTestFramework:
         self.users = {}
         self.files = {}
 
-        print("🧪 Authorization Test Framework initialized")
+        print("Authorization Test Framework initialized")
 
     def setup_test_fixtures(self):
         """
@@ -64,7 +64,7 @@ class AuthorizationTestFramework:
         org_external = "org-external"
 
         # Create test users
-        print("\n1️⃣ Creating test users...")
+        print("\n1) Creating test users...")
         owner_resp = self.api.create_user("owner@acme.com", org_acme, "Test Owner")
         collab_resp = self.api.create_user("collab@acme.com", org_acme, "Test Collaborator")
         org_resp = self.api.create_user("orgmember@acme.com", org_acme, "Test OrgMember")
@@ -77,12 +77,12 @@ class AuthorizationTestFramework:
             'external': ext_resp.data['user_id']
         }
 
-        print(f"   ✅ Created 4 test users")
+        print(f"   Created 4 test users")
         for role, uid in self.users.items():
             print(f"      - {role}: {uid[:8]}...")
 
         # Create test files with different visibility levels
-        print("\n2️⃣ Creating test files...")
+        print("\n2) Creating test files...")
         owner_id = self.users['owner']
 
         private_resp = self.api.create_file(owner_id, "test-private.txt",
@@ -101,12 +101,12 @@ class AuthorizationTestFramework:
             'public': public_resp.data['file_id']
         }
 
-        print(f"   ✅ Created 4 test files")
+        print(f"   Created 4 test files")
         for visibility, fid in self.files.items():
             print(f"      - {visibility}: {fid[:8]}...")
 
         # Grant collaboration permissions
-        print("\n3️⃣ Setting up collaboration permissions...")
+        print("\n3) Setting up collaboration permissions...")
         collab_id = self.users['collaborator']
 
         # Collaborator gets 'edit' permission on shared file
@@ -115,7 +115,7 @@ class AuthorizationTestFramework:
         # Collaborator gets 'edit' permission on private file
         self.api.share_file(self.files['private'], owner_id, collab_id, 'edit')
 
-        print(f"   ✅ Granted collaboration permissions")
+        print(f"   Granted collaboration permissions")
 
         print("\n" + "=" * 60)
         print("TEST FIXTURES READY")
@@ -207,8 +207,8 @@ class AuthorizationTestFramework:
         scenarios = self.policy.generate_all_scenarios()
         total = len(scenarios)
 
-        print(f"📊 Total scenarios to test: {total}")
-        print("⏳ Running tests...\n")
+        print(f"Total scenarios to test: {total}")
+        print("Running tests...\n")
 
         self.test_results = []
 
@@ -286,46 +286,46 @@ class AuthorizationTestFramework:
         print("TEST EXECUTION SUMMARY")
         print("=" * 60)
         print(f"Total Scenarios: {analysis['total']}")
-        print(f"✅ PASSED: {analysis['passed']} ({analysis['pass_rate']:.1f}%)")
-        print(f"❌ FAILED: {analysis['failed']} ({100 - analysis['pass_rate']:.1f}%)")
+        print(f"PASSED: {analysis['passed']} ({analysis['pass_rate']:.1f}%)")
+        print(f"FAILED: {analysis['failed']} ({100 - analysis['pass_rate']:.1f}%)")
         print("=" * 60)
 
         if analysis['failed'] > 0:
-            print("\n🚨 FAILURE ANALYSIS")
+            print("\nFAILURE ANALYSIS")
             print("-" * 60)
 
             # Over-permissive failures (HIGH SEVERITY)
             if analysis['over_permissive']:
-                print(f"\n⚠️  OVER-PERMISSIVE (HIGH SEVERITY): {len(analysis['over_permissive'])} cases")
+                    print(f"\nOVER-PERMISSIVE (HIGH SEVERITY): {len(analysis['over_permissive'])} cases")
                 print("   API allows actions that should be DENIED\n")
                 for result in analysis['over_permissive']:
                     s = result.scenario
-                    print(f"   🐛 Scenario {s['scenario_id']}: {s['audience']} can {s['action']} "
+                      print(f"   Scenario {s['scenario_id']}: {s['audience']} can {s['action']} "
                           f"{s['visibility']} file")
                     print(f"      Expected: DENY | Actual: ALLOW")
 
             # Over-restrictive failures (MEDIUM SEVERITY)
             if analysis['over_restrictive']:
-                print(f"\n⚠️  OVER-RESTRICTIVE (MEDIUM SEVERITY): {len(analysis['over_restrictive'])} cases")
+                    print(f"\nOVER-RESTRICTIVE (MEDIUM SEVERITY): {len(analysis['over_restrictive'])} cases")
                 print("   API denies actions that should be ALLOWED\n")
                 for result in analysis['over_restrictive']:
                     s = result.scenario
-                    print(f"   🐛 Scenario {s['scenario_id']}: {s['audience']} cannot {s['action']} "
+                      print(f"   Scenario {s['scenario_id']}: {s['audience']} cannot {s['action']} "
                           f"{s['visibility']} file")
                     print(f"      Expected: ALLOW | Actual: DENY")
 
             # Breakdown by audience
-            print("\n📊 FAILURES BY AUDIENCE:")
+            print("\nFAILURES BY AUDIENCE:")
             for audience, failures in analysis['failures_by_audience'].items():
                 print(f"   {audience:12} - {len(failures)} failures")
 
             # Breakdown by action
-            print("\n📊 FAILURES BY ACTION:")
+            print("\nFAILURES BY ACTION:")
             for action, failures in analysis['failures_by_action'].items():
                 print(f"   {action:12} - {len(failures)} failures")
 
         else:
-            print("\n🎉 ALL TESTS PASSED! No authorization bugs found.")
+            print("\nALL TESTS PASSED! No authorization bugs found.")
 
         print("\n" + "=" * 60 + "\n")
 
@@ -351,7 +351,7 @@ class AuthorizationTestFramework:
                 'results': results_data
             }, f, indent=2, default=str)
 
-        print(f"📄 Detailed results exported to {filename}")
+        print(f"Detailed results exported to {filename}")
 
     def get_failed_scenarios(self) -> List[TestResult]:
         """Get only the failed test results"""
@@ -394,6 +394,6 @@ if __name__ == "__main__":
             print(f"   Action: {s['action']}")
             print(f"   Expected: {result.expected}")
             print(f"   Actual: {result.actual}")
-            print(f"   Status: {'✅ PASS' if result.passed else '❌ FAIL'}")
+            print(f"   Status: {'PASS' if result.passed else 'FAIL'}")
 
-    print("\n✅ Testing complete! Check test_results.json for detailed output.\n")
+    print("\nTesting complete! Check test_results.json for detailed output.\n")

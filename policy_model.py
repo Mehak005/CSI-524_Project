@@ -179,7 +179,7 @@ class AuthorizationPolicy:
             writer.writeheader()
             writer.writerows(scenarios)
 
-        print(f"✅ Exported {len(scenarios)} scenarios to {filename}")
+        print(f"Exported {len(scenarios)} scenarios to {filename}")
         return scenarios
 
     def print_statistics(self):
@@ -274,7 +274,7 @@ if __name__ == "__main__":
             has_collaboration_permission=test['has_collaboration'],
             same_org=test['same_org']
         )
-        status = "✅" if result == "ALLOW" else "❌"
+        status = "ALLOW" if result == "ALLOW" else "DENY"
         print(f"{i}. {test['desc']}")
         print(f"   Result: {status} {result}\n")
 

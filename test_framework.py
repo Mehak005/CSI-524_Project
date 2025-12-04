@@ -296,21 +296,21 @@ class AuthorizationTestFramework:
 
             # Over-permissive failures (HIGH SEVERITY)
             if analysis['over_permissive']:
-                    print(f"\nOVER-PERMISSIVE (HIGH SEVERITY): {len(analysis['over_permissive'])} cases")
+                print(f"\nOVER-PERMISSIVE (HIGH SEVERITY): {len(analysis['over_permissive'])} cases")
                 print("   API allows actions that should be DENIED\n")
                 for result in analysis['over_permissive']:
                     s = result.scenario
-                      print(f"   Scenario {s['scenario_id']}: {s['audience']} can {s['action']} "
+                    print(f"   Scenario {s['scenario_id']}: {s['audience']} can {s['action']} "
                           f"{s['visibility']} file")
                     print(f"      Expected: DENY | Actual: ALLOW")
 
             # Over-restrictive failures (MEDIUM SEVERITY)
             if analysis['over_restrictive']:
-                    print(f"\nOVER-RESTRICTIVE (MEDIUM SEVERITY): {len(analysis['over_restrictive'])} cases")
+                print(f"\nOVER-RESTRICTIVE (MEDIUM SEVERITY): {len(analysis['over_restrictive'])} cases")
                 print("   API denies actions that should be ALLOWED\n")
                 for result in analysis['over_restrictive']:
                     s = result.scenario
-                      print(f"   Scenario {s['scenario_id']}: {s['audience']} cannot {s['action']} "
+                    print(f"   Scenario {s['scenario_id']}: {s['audience']} cannot {s['action']} "
                           f"{s['visibility']} file")
                     print(f"      Expected: ALLOW | Actual: DENY")
 

@@ -30,12 +30,11 @@ def simple_demo():
 
     print_header("🎬 AUTHORIZATION TESTING DEMO")
 
-    print("This demo will:")
-    print("  1. Set up a file-sharing environment")
-    print("  2. Test 5 authorization scenarios")
-    print("  3. Show you which ones pass and which ones fail (bugs!)")
-    print()
-    input("Press Enter to start...")
+    # print("This demo will:")
+    # print("  1. Set up a file-sharing environment")
+    # print("  2. Test 5 authorization scenarios")
+    # print("  3. Show you which ones pass and which ones fail (bugs!)")
+    # print()
 
     # ============================================================
     # STEP 1: Setup
@@ -230,13 +229,6 @@ def simple_demo():
         print("  • Automated, systematic testing is essential for security")
     else:
         print("\n✅ All tests passed! No bugs found.")
-
-    print("\n" + "=" * 70)
-    print("  In the full framework, we test ALL 64 possible scenarios")
-    print("  and create visualizations to show patterns in the bugs.")
-    print("=" * 70 + "\n")
-
-    print("Thank you! 🎉")
 
 
 if __name__ == "__main__":
